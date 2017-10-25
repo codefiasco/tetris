@@ -10,7 +10,11 @@ public class Grid {
         spaces = new Position[cols][rows];
     }
 
-    private boolean freeSpaceAt(int col, int row) {
+    public boolean freeSpaceAt(int col, int row) {
         return spaces[col][row] == null;
+    }
+
+    public void moveTo(Position pos, int col, int row) {
+        spaces[col][row] = pos;
     }
 }
