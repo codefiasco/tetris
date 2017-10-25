@@ -47,10 +47,33 @@ public class Grid {
     }
 
     private void destroyLine(int line) {
-
         for (int i = 0; i < spaces.length; i++) {
             spaces[i][line].getBlock().deletePosition(spaces[i][line]);
             spaces[i][line] = null;
+        }
+
+        moveLinesAboveDown(line);
+    }
+
+    private void moveLinesAboveDown(int line) {
+
+        if (line < 0) {
+            return;
+        }
+
+        boolean emptyLine = true;
+
+        for (int i = 0; i < spaces.length; i++) {
+
+            if (spaces[i][line - 1] != null){
+
+                spaces[i][line - 1].getBlock().moveDown(spaces[i][line - 1]);
+                emptyLine = false;
+            }
+        }
+
+        if (!emptyLine) {
+            moveLinesAboveDown(line - 1);
         }
     }
 }

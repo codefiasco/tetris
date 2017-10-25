@@ -99,6 +99,17 @@ public abstract class Block implements Spinnable {
         }
     }
 
+    public void moveDown(Position pos) {
+        for (int i = 0; i < positions.length; i++) {
+
+            if (pos == positions[i]) {
+                positions[i].moveDown();
+                representations[i].translate(0, Constants.CELL_SIZE);
+                return;
+            }
+        }
+    }
+
     public void deletePosition(Position pos){
         Position[] newPositions = new Position[positions.length - 1];
         Rectangle[] newRepresentations = new Rectangle[representations.length - 1];
