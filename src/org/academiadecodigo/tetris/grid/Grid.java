@@ -1,23 +1,16 @@
 package org.academiadecodigo.tetris.grid;
 
+import org.academiadecodigo.tetris.position.Position;
+
 public class Grid {
 
-    private Space[][] spaces;
+    private Position[][] spaces;
 
     public Grid(int cols, int rows) {
-        spaces = new Space[cols][rows];
-        initializeSpaces();
-    }
-
-    private void initializeSpaces() {
-        for (int i = 0; i < spaces.length; i++) {
-            for (int j = 0; j < spaces[i].length; j++) {
-                spaces[i][j] = Space.FREE;
-            }
-        }
+        spaces = new Position[cols][rows];
     }
 
     private boolean freeSpaceAt(int col, int row) {
-        return spaces[col][row] == Space.FREE;
+        return spaces[col][row] == null;
     }
 }
