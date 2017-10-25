@@ -28,4 +28,29 @@ public class Grid {
         if (spaces[col][row] == pos)
             spaces[col][row] = null;
     }
+
+    public void checkLines() {
+
+        for (int i = 0; i < spaces[0].length; i++) {
+
+            for (int j = 0; j < spaces.length; j++) {
+
+                if (spaces[j][i] == null) {
+                    break;
+                }
+
+                if (j == spaces.length - 1) {
+                    destroyLine(i);
+                }
+            }
+        }
+    }
+
+    private void destroyLine(int line) {
+
+        for (int i = 0; i < spaces.length; i++) {
+            spaces[i][line].getBlock().deletePosition(spaces[i][line]);
+            spaces[i][line] = null;
+        }
+    }
 }

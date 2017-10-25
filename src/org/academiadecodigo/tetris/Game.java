@@ -32,13 +32,17 @@ public class Game {
 
     public void gameLoop() throws InterruptedException{
 
-        while (!activeBlock.hitBottom()) {
+        while (true) {
             activeBlock.moveDown();
+
+            if (activeBlock.hitBottom()) {
+                grid.checkLines();
+
+                activeBlock = BlockFactory.getBlock(grid);
+                keyboardListener.setBlock(activeBlock);
+            }
+
             Thread.sleep(Constants.DELAY);
         }
-
-        activeBlock = BlockFactory.getBlock(grid);
-        keyboardListener.setBlock(activeBlock);
-        gameLoop();
     }
 }
