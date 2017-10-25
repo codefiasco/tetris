@@ -39,6 +39,12 @@ public class Game {
                 grid.checkLines();
 
                 activeBlock = BlockFactory.getBlock(grid);
+
+                if (activeBlock.hitBottom()) {
+                    System.out.println("You Lose!");
+                    return;
+                }
+
                 keyboardListener.setBlock(activeBlock);
             }
 
