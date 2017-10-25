@@ -25,10 +25,10 @@ public class Position {
         switch (direction) {
 
             case RIGHT:
-                return grid.freeSpaceAt(block,col - 1, row);
+                return grid.freeSpaceAt(block,col + 1, row);
 
             case LEFT:
-                return grid.freeSpaceAt(block,col + 1, row);
+                return grid.freeSpaceAt(block,col - 1, row);
 
             case DOWN:
                 return grid.freeSpaceAt(block, col, row + 1);

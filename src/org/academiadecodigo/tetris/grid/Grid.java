@@ -12,6 +12,11 @@ public class Grid {
     }
 
     public boolean freeSpaceAt(Block block, int col, int row) {
+
+        if (col < 0 || col >= spaces.length || row < 0 || row >= spaces[0].length){
+            return false;
+        }
+
         return spaces[col][row] == null || spaces[col][row].getBlock() == block;
     }
 

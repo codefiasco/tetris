@@ -9,36 +9,55 @@ import org.academiadecodigo.tetris.drawable.movable.spinnable.block.Block;
 public class KeyboardListener implements KeyboardHandler {
 
     private Keyboard kb;
+    private Block block;
 
     public KeyboardListener(){
         kb = new Keyboard(this);
 
         KeyboardEvent key = new KeyboardEvent();
         key.setKey(KeyboardEvent.KEY_RIGHT);
-        key.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        key.setKeyboardEventType(KeyboardEventType.KEY_RELEASED);
         kb.addEventListener(key);
 
         key = new KeyboardEvent();
         key.setKey(KeyboardEvent.KEY_LEFT);
-        key.setKeyboardEventType(KeyboardEventType.KEY_PRESSED);
+        key.setKeyboardEventType(KeyboardEventType.KEY_RELEASED);
+        kb.addEventListener(key);
+
+        key = new KeyboardEvent();
+        key.setKey(KeyboardEvent.KEY_DOWN);
+        key.setKeyboardEventType(KeyboardEventType.KEY_RELEASED);
         kb.addEventListener(key);
     }
 
     @Override
     public void keyPressed(KeyboardEvent keyboardEvent) {
-
-        switch (keyboardEvent.getKey()) {
-
-            case KeyboardEvent.KEY_RIGHT:
-                System.out.println("R");
-                break;
-
-            case KeyboardEvent.KEY_LEFT:
-        }
     }
 
     @Override
     public void keyReleased(KeyboardEvent keyboardEvent) {
 
+        if (block == null) {
+            return;
+        }
+
+        switch (keyboardEvent.getKey()) {
+
+            case KeyboardEvent.KEY_RIGHT:
+                block.moveRight();
+                break;
+
+            case KeyboardEvent.KEY_LEFT:
+                block.moveLeft();
+                break;
+
+            case KeyboardEvent.KEY_DOWN:
+                block.moveDown();
+                break;
+        }
+    }
+
+    public void setBlock(Block block) {
+        this.block = block;
     }
 }
