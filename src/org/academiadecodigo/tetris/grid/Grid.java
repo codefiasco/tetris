@@ -17,4 +17,8 @@ public class Grid {
     public void moveTo(Position pos, int col, int row) {
         spaces[col][row] = pos;
     }
+
+    public void clear(int col, int row) {
+        spaces[col][row] = null;
+    }
 }
