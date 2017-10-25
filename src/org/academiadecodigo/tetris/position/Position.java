@@ -1,7 +1,7 @@
 package org.academiadecodigo.tetris.position;
 
 import org.academiadecodigo.tetris.direction.Direction;
-import org.academiadecodigo.tetris.drawable.movable.spinnable.block.Block;
+import org.academiadecodigo.tetris.movable.spinnable.block.Block;
 import org.academiadecodigo.tetris.grid.Grid;
 
 public class Position {

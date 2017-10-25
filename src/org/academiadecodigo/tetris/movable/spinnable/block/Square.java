@@ -1,4 +1,4 @@
-package org.academiadecodigo.tetris.drawable.movable.spinnable.block;
+package org.academiadecodigo.tetris.movable.spinnable.block;
 
 import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.tetris.grid.Grid;

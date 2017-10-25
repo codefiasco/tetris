@@ -1,10 +1,10 @@
-package org.academiadecodigo.tetris.drawable.movable.spinnable.block;
+package org.academiadecodigo.tetris.movable.spinnable.block;
 
 import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import org.academiadecodigo.tetris.Constants;
 import org.academiadecodigo.tetris.direction.Direction;
-import org.academiadecodigo.tetris.drawable.movable.spinnable.Spinnable;
+import org.academiadecodigo.tetris.movable.spinnable.Spinnable;
 import org.academiadecodigo.tetris.grid.Grid;
 import org.academiadecodigo.tetris.position.Position;
 import org.academiadecodigo.tetris.unit_converter.UnitConverter;
@@ -85,10 +85,5 @@ public abstract class Block implements Spinnable {
             positions[i].moveDown();
             representations[i].translate(0, Constants.CELL_SIZE);
         }
-    }
-
-    @Override
-    public void draw() {
-
     }
 }

@@ -1,6 +1,6 @@
 package org.academiadecodigo.tetris.grid;
 
-import org.academiadecodigo.tetris.drawable.movable.spinnable.block.Block;
+import org.academiadecodigo.tetris.movable.spinnable.block.Block;
 import org.academiadecodigo.tetris.position.Position;
 
 public class Grid {
