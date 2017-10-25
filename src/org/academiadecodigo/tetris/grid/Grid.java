@@ -24,7 +24,8 @@ public class Grid {
         spaces[col][row] = pos;
     }
 
-    public void clear(int col, int row) {
-        spaces[col][row] = null;
+    public void clear(Position pos, int col, int row) {
+        if (spaces[col][row] == pos)
+            spaces[col][row] = null;
     }
 }

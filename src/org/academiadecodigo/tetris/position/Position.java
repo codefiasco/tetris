@@ -38,15 +38,18 @@ public class Position {
     }
 
     public void moveDown() {
-        row++;
+        grid.clear(this, col, row++);
+        grid.moveTo(this, col, row);
     }
 
     public void moveRight() {
-        col++;
+        grid.clear(this, col++, row);
+        grid.moveTo(this, col, row);
     }
 
     public void moveLeft() {
-        col--;
+        grid.clear(this, col--, row);
+        grid.moveTo(this, col, row);
     }
 
     public Block getBlock() {

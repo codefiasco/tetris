@@ -2,6 +2,7 @@ package org.academiadecodigo.tetris;
 
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import org.academiadecodigo.tetris.movable.spinnable.block.Block;
+import org.academiadecodigo.tetris.movable.spinnable.block.BlockFactory;
 import org.academiadecodigo.tetris.movable.spinnable.block.Square;
 import org.academiadecodigo.tetris.grid.Grid;
 import org.academiadecodigo.tetris.keyboard_listener.KeyboardListener;
@@ -19,18 +20,25 @@ public class Game {
         background.fill();
 
         grid = new Grid(10, 20);
-        activeBlock = new Square(grid);
+        activeBlock = BlockFactory.getBlock(grid);
 
         keyboardListener = new KeyboardListener();
         keyboardListener.setBlock(activeBlock);
     }
 
     public void start() throws InterruptedException{
+        gameLoop();
+    }
+
+    public void gameLoop() throws InterruptedException{
 
         while (!activeBlock.hitBottom()) {
-
             activeBlock.moveDown();
             Thread.sleep(Constants.DELAY);
         }
+
+        activeBlock = BlockFactory.getBlock(grid);
+        keyboardListener.setBlock(activeBlock);
+        gameLoop();
     }
 }
