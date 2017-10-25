@@ -1,7 +1,8 @@
 package org.academiadecodigo.tetris.movable.spinnable.block;
 
 public enum BlockType {
-    LINE,
+    IBLOCK,
+    LBLOCK,
     SQUARE;
 
     public static BlockType getRandom() {

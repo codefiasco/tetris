@@ -3,15 +3,14 @@ package org.academiadecodigo.tetris.movable.spinnable.block;
 import org.academiadecodigo.simplegraphics.graphics.Color;
 import org.academiadecodigo.tetris.grid.Grid;
 
-public class Line extends Block {
+public class LBlock extends Block {
 
-    public Line(Grid grid) {
+    public LBlock(Grid grid) {
         super(new int[][]{
                 {0, 0},
                 {0, 1},
-                {0, 2},
-                {0, 3}
-        }, Color.RED, grid);
+                {0, 2}, {1, 2}
+        }, Color.YELLOW, grid);
     }
 
     @Override

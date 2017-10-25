@@ -9,8 +9,11 @@ public abstract class BlockFactory {
         BlockType rand = BlockType.getRandom();
 
         switch (rand) {
-            case LINE:
-                return new Line(grid);
+            case IBLOCK:
+                return new IBlock(grid);
+
+            case LBLOCK:
+                return new LBlock(grid);
 
             case SQUARE:
                 return new Square(grid);
