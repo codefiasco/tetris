@@ -6,10 +6,14 @@ public abstract class BlockFactory {
 
     public static Block getBlock(Grid grid) {
 
-        int rand = (int) (Math.random() * 2);
+        BlockType rand = BlockType.getRandom();
 
-        if (rand == 0) {
-            return new Line(grid);
+        switch (rand) {
+            case LINE:
+                return new Line(grid);
+
+            case SQUARE:
+                return new Square(grid);
         }
 
         return new Square(grid);
