@@ -1,5 +1,6 @@
 package org.academiadecodigo.tetris.position;
 
+import org.academiadecodigo.tetris.direction.Direction;
 import org.academiadecodigo.tetris.grid.Grid;
 
 public class Position {
@@ -16,11 +17,20 @@ public class Position {
         this.row = row;
     }
 
-    public int getCol() {
-        return col;
-    }
+    public boolean movePermission(Direction direction){
 
-    public int getRow() {
-        return row;
+        switch (direction) {
+
+            case RIGHT:
+                return grid.freeSpaceAt(col - 1, row);
+
+            case LEFT:
+                return grid.freeSpaceAt(col + 1, row);
+
+            case DOWN:
+                return grid.freeSpaceAt(col, row + 1);
+        }
+
+        return false;
     }
 }

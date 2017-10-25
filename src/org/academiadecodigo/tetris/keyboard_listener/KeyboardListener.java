@@ -34,8 +34,6 @@ public class KeyboardListener implements KeyboardHandler {
                 break;
 
             case KeyboardEvent.KEY_LEFT:
-                System.out.println("L");
-                break;
         }
     }
 
