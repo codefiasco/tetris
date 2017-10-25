@@ -36,6 +36,18 @@ public abstract class Block implements Spinnable {
         }
     }
 
+    public boolean hitBottom() {
+
+        // Check if all positions can move
+        for (Position pos : positions) {
+            if (!pos.movePermission(Direction.DOWN)){
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     @Override
     public void moveLeft() {
 
