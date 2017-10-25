@@ -16,4 +16,8 @@ public class Grid {
             }
         }
     }
+
+    private boolean freeSpaceAt(int col, int row) {
+        return spaces[col][row] == Space.FREE;
+    }
 }
