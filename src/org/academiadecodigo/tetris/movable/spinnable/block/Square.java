@@ -13,12 +13,7 @@ public class Square extends Block {
     }
 
     @Override
-    public void spinLeft() {
-
-    }
-
-    @Override
-    public void spinRight() {
+    public void spin() {
 
     }
 }
