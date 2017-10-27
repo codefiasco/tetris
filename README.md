@@ -8,3 +8,6 @@ To Dos:
 * Initial Screen;
 * End Screen;
 * Restart;
+* Score;
+* Levels;
+* Next Piece;
