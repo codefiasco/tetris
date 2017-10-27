@@ -11,8 +11,8 @@ import org.academiadecodigo.tetris.unit_converter.UnitConverter;
 
 public abstract class Block implements Spinnable {
 
-    private Position[] positions;
-    private Rectangle[] representations;
+    protected Position[] positions;
+    protected Rectangle[] representations;
     private Color color;
 
     public Block(int[][] positions, Color color, Grid grid) {

@@ -28,6 +28,11 @@ public class KeyboardListener implements KeyboardHandler {
         key.setKey(KeyboardEvent.KEY_DOWN);
         key.setKeyboardEventType(KeyboardEventType.KEY_RELEASED);
         kb.addEventListener(key);
+
+        key = new KeyboardEvent();
+        key.setKey(KeyboardEvent.KEY_SPACE);
+        key.setKeyboardEventType(KeyboardEventType.KEY_RELEASED);
+        kb.addEventListener(key);
     }
 
     @Override
@@ -54,6 +59,9 @@ public class KeyboardListener implements KeyboardHandler {
             case KeyboardEvent.KEY_DOWN:
                 block.moveDown();
                 break;
+
+            case KeyboardEvent.KEY_SPACE:
+                block.spin();
         }
     }
 

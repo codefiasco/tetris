@@ -37,6 +37,20 @@ public class Position {
         return false;
     }
 
+    public boolean movePermission(int col, int row) {
+        return grid.freeSpaceAt(block, col, row);
+    }
+
+    public void moveTo(int col, int row) {
+        grid.moveTo(this, col, row);
+        this.col = col;
+        this.row = row;
+    }
+
+    public void clear() {
+        grid.clear(this, col, row);
+    }
+
     public void moveDown() {
         grid.clear(this, col, row++);
         grid.moveTo(this, col, row);
