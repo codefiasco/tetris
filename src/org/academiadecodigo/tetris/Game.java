@@ -33,7 +33,6 @@ public class Game {
     public void gameLoop() throws InterruptedException{
 
         while (true) {
-            activeBlock.moveDown();
 
             if (activeBlock.hitBottom()) {
                 grid.checkLines();
@@ -47,6 +46,8 @@ public class Game {
 
                 keyboardListener.setBlock(activeBlock);
             }
+
+            activeBlock.moveDown();
 
             Thread.sleep(Constants.DELAY);
         }
