@@ -13,10 +13,8 @@ public abstract class Block implements Spinnable {
 
     protected Position[] positions;
     protected Rectangle[] representations;
-    private Color color;
 
     public Block(int[][] positions, Color color, Grid grid) {
-        this.color = color;
 
         // Create logical positions
         this.positions = new Position[positions.length];
