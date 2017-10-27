@@ -3,7 +3,6 @@ package org.academiadecodigo.tetris;
 import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import org.academiadecodigo.tetris.movable.spinnable.block.Block;
 import org.academiadecodigo.tetris.movable.spinnable.block.BlockFactory;
-import org.academiadecodigo.tetris.movable.spinnable.block.Square;
 import org.academiadecodigo.tetris.grid.Grid;
 import org.academiadecodigo.tetris.keyboard_listener.KeyboardListener;
 

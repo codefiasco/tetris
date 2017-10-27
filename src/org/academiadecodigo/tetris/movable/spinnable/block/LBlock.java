@@ -1,11 +1,9 @@
 package org.academiadecodigo.tetris.movable.spinnable.block;
 
 import org.academiadecodigo.simplegraphics.graphics.Color;
-import org.academiadecodigo.simplegraphics.graphics.Rectangle;
 import org.academiadecodigo.tetris.Constants;
 import org.academiadecodigo.tetris.direction.Direction;
 import org.academiadecodigo.tetris.grid.Grid;
-import org.academiadecodigo.tetris.unit_converter.UnitConverter;
 
 public class LBlock extends Block {
 
