@@ -11,9 +11,13 @@ import org.academiadecodigo.tetris.keyboard_listener.KeyboardListener;
 public class Game {
 
     private Rectangle background;
+
     private KeyboardListener keyboardListener;
+    private boolean paused;
+
     private Grid grid;
     private Block activeBlock;
+
     private int score;
     private Text scoreText;
 
@@ -25,36 +29,44 @@ public class Game {
         grid = new Grid(10, 20);
         activeBlock = BlockFactory.getBlock(grid);
 
-        keyboardListener = new KeyboardListener();
+        keyboardListener = new KeyboardListener(this);
         keyboardListener.setBlock(activeBlock);
+
+        paused = false;
 
         score = 0;
         updateScore();
     }
 
-    public void start() throws InterruptedException{
-        gameLoop();
+    public void start() {
+        try {
+            gameLoop();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
-    public void gameLoop() throws InterruptedException{
+    private void gameLoop() throws InterruptedException {
 
         while (true) {
 
-            if (activeBlock.hitBottom()) {
-                score += grid.checkLines();
-                updateScore();
-
-                activeBlock = BlockFactory.getBlock(grid);
-
+            if (!paused) {
                 if (activeBlock.hitBottom()) {
-                    gameOver();
-                    return;
+                    score += grid.checkLines();
+                    updateScore();
+
+                    activeBlock = BlockFactory.getBlock(grid);
+
+                    if (activeBlock.hitBottom()) {
+                        gameOver();
+                        return;
+                    }
+
+                    keyboardListener.setBlock(activeBlock);
                 }
 
-                keyboardListener.setBlock(activeBlock);
+                activeBlock.moveDown();
             }
-
-            activeBlock.moveDown();
 
             Thread.sleep(Constants.DELAY);
         }
@@ -62,11 +74,11 @@ public class Game {
 
     private void updateScore() {
 
-        if(scoreText != null) {
+        if (scoreText != null) {
             scoreText.delete();
         }
 
-        scoreText = new Text(Constants.PADDING + 10, Constants.PADDING + 10, "Score: " + score );
+        scoreText = new Text(Constants.PADDING + 10, Constants.PADDING + 10, "Score: " + score);
         scoreText.setColor(Color.WHITE);
         scoreText.draw();
     }
@@ -89,5 +101,17 @@ public class Game {
 
         g.draw();
         o.draw();
+    }
+
+    public boolean isPaused() {
+        return paused;
+    }
+
+    public void pause() {
+        paused = true;
+    }
+
+    public void unPause() {
+        paused = false;
     }
 }

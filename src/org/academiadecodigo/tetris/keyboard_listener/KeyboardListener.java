@@ -4,14 +4,17 @@ import org.academiadecodigo.simplegraphics.keyboard.Keyboard;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEvent;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardEventType;
 import org.academiadecodigo.simplegraphics.keyboard.KeyboardHandler;
+import org.academiadecodigo.tetris.Game;
 import org.academiadecodigo.tetris.movable.spinnable.block.Block;
 
 public class KeyboardListener implements KeyboardHandler {
 
     private Keyboard kb;
     private Block block;
+    private Game game;
 
-    public KeyboardListener(){
+    public KeyboardListener(Game game){
+        this.game = game;
         kb = new Keyboard(this);
 
         KeyboardEvent key = new KeyboardEvent();
@@ -36,6 +39,11 @@ public class KeyboardListener implements KeyboardHandler {
 
         key = new KeyboardEvent();
         key.setKey(KeyboardEvent.KEY_UP);
+        key.setKeyboardEventType(KeyboardEventType.KEY_RELEASED);
+        kb.addEventListener(key);
+
+        key = new KeyboardEvent();
+        key.setKey(KeyboardEvent.KEY_P);
         key.setKeyboardEventType(KeyboardEventType.KEY_RELEASED);
         kb.addEventListener(key);
     }
@@ -68,6 +76,15 @@ public class KeyboardListener implements KeyboardHandler {
             case KeyboardEvent.KEY_UP:
             case KeyboardEvent.KEY_SPACE:
                 block.spin();
+                break;
+
+                case KeyboardEvent.KEY_P:
+                    if (!game.isPaused()) {
+                        game.pause();
+                        break;
+                    }
+
+                    game.unPause();
         }
     }
 
