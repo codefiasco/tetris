@@ -13,7 +13,9 @@ public class Game {
     private Rectangle background;
 
     private KeyboardListener keyboardListener;
+
     private boolean paused;
+    private Text pausedText;
 
     private boolean end;
     private Text[] overText;
@@ -28,6 +30,11 @@ public class Game {
         background = new Rectangle(Constants.PADDING, Constants.PADDING, Constants.GAME_WIDTH, Constants.GAME_HEIGHT);
         background.setColor(Constants.BACKGROUND_COLOR);
         background.fill();
+
+        pausedText = new Text(Constants.GAME_WIDTH / 2, Constants.GAME_HEIGHT / 2, "PAUSE");
+        pausedText.setColor(Color.LIGHT_GRAY);
+        pausedText.translate(-pausedText.getWidth() / 2, -pausedText.getHeight() / 2);
+        pausedText.grow(pausedText.getWidth() * 3, pausedText.getHeight() * 3);
 
         overText = new Text[2];
 
@@ -110,6 +117,10 @@ public class Game {
     }
 
     public void restart() {
+        if (paused) {
+            return;
+        }
+
         grid.reset();
 
         activeBlock = BlockFactory.getBlock(grid);
@@ -128,10 +139,16 @@ public class Game {
     }
 
     public void pause() {
+        if (end) {
+            return;
+        }
+
+        pausedText.draw();
         paused = true;
     }
 
     public void unPause() {
+        pausedText.delete();
         paused = false;
     }
 }

@@ -11,3 +11,4 @@ To Dos:
 - [X] Score;
 - [ ] Levels;
 - [ ] Next Piece;
+- [ ] HighScore Memory;
