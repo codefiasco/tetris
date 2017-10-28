@@ -1,7 +1,7 @@
 # Tetris in Java
 A version of the Tetris game using Java and the Simple Graphics Library.
 
-To Dos:
+To Do:
 - [ ] J Block;
 - [ ] Z Block;
 - [X] Pause;
@@ -9,6 +9,6 @@ To Dos:
 - [X] End Screen;
 - [X] Restart;
 - [X] Score;
-- [ ] Levels;
+- [X] Levels;
 - [ ] Next Piece;
 - [ ] HighScore Memory;
