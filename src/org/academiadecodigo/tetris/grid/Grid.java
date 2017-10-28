@@ -1,5 +1,6 @@
 package org.academiadecodigo.tetris.grid;
 
+import org.academiadecodigo.tetris.Constants;
 import org.academiadecodigo.tetris.movable.spinnable.block.Block;
 import org.academiadecodigo.tetris.position.Position;
 
@@ -29,7 +30,9 @@ public class Grid {
             spaces[col][row] = null;
     }
 
-    public void checkLines() {
+    public int checkLines() {
+
+        int bonus = 0;
 
         for (int i = 0; i < spaces[0].length; i++) {
 
@@ -41,9 +44,12 @@ public class Grid {
 
                 if (j == spaces.length - 1) {
                     destroyLine(i);
+                    bonus += Constants.LINE_SCORE;
                 }
             }
         }
+
+        return bonus;
     }
 
     private void destroyLine(int line) {

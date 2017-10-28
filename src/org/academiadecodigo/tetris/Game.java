@@ -14,6 +14,8 @@ public class Game {
     private KeyboardListener keyboardListener;
     private Grid grid;
     private Block activeBlock;
+    private int score;
+    private Text scoreText;
 
     public void init() {
         background = new Rectangle(Constants.PADDING, Constants.PADDING, Constants.GAME_WIDTH, Constants.GAME_HEIGHT);
@@ -25,6 +27,9 @@ public class Game {
 
         keyboardListener = new KeyboardListener();
         keyboardListener.setBlock(activeBlock);
+
+        score = 0;
+        updateScore();
     }
 
     public void start() throws InterruptedException{
@@ -36,7 +41,8 @@ public class Game {
         while (true) {
 
             if (activeBlock.hitBottom()) {
-                grid.checkLines();
+                score += grid.checkLines();
+                updateScore();
 
                 activeBlock = BlockFactory.getBlock(grid);
 
@@ -52,6 +58,17 @@ public class Game {
 
             Thread.sleep(Constants.DELAY);
         }
+    }
+
+    private void updateScore() {
+
+        if(scoreText != null) {
+            scoreText.delete();
+        }
+
+        scoreText = new Text(Constants.PADDING + 10, Constants.PADDING + 10, "Score: " + score );
+        scoreText.setColor(Color.WHITE);
+        scoreText.draw();
     }
 
     private void gameOver() {

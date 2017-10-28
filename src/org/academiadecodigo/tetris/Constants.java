@@ -11,4 +11,7 @@ public abstract class Constants {
     public static final int GAME_HEIGHT = 700;
     public static final int CELL_SIZE = 35;
     public static final Color BACKGROUND_COLOR = Color.BLACK;
+
+    // Score
+    public static final int LINE_SCORE = 10;
 }
