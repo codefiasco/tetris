@@ -43,9 +43,4 @@ public class SBlock extends Block{
         state = state == Direction.UP ? Direction.RIGHT : Direction.UP;
 
     }
-
-    private void spinSideways() {
-
-
-    }
 }

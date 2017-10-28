@@ -94,7 +94,6 @@ public class Game {
             }
 
             Thread.sleep(Constants.DELAY - score / Constants.LEVEL_SCORE * Constants.LEVEL_TIME_INCREASE);
-            System.out.println(Constants.DELAY - score / Constants.LEVEL_SCORE * Constants.LEVEL_TIME_INCREASE);
         }
     }
 

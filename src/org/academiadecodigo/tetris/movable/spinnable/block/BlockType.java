@@ -4,6 +4,7 @@ public enum BlockType {
     IBLOCK,
     LBLOCK,
     SBLOCK,
+    ZBLOCK,
     TBLOCK,
     SQUARE;
 
