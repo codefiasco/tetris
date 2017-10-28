@@ -6,7 +6,7 @@ To Dos:
 - [ ] Z Block;
 - [ ] Pause;
 - [ ] Initial Screen;
-- [ ] End Screen;
+- [X] End Screen;
 - [ ] Restart;
 - [ ] Score;
 - [ ] Levels;
