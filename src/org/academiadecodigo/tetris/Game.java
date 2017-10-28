@@ -15,6 +15,9 @@ public class Game {
     private KeyboardListener keyboardListener;
     private boolean paused;
 
+    private boolean end;
+    private Text[] overText;
+
     private Grid grid;
     private Block activeBlock;
 
@@ -26,6 +29,20 @@ public class Game {
         background.setColor(Constants.BACKGROUND_COLOR);
         background.fill();
 
+        overText = new Text[2];
+
+        overText[0] = new Text(Constants.GAME_WIDTH / 2, Constants.GAME_HEIGHT / 2 - 30, "GAME");
+        overText[1] = new Text(Constants.GAME_WIDTH / 2, Constants.GAME_HEIGHT / 2 + 30, "OVER");
+
+        overText[0].setColor(Color.LIGHT_GRAY);
+        overText[1].setColor(Color.LIGHT_GRAY);
+
+        overText[0].translate(-overText[0].getWidth() / 2, -overText[0].getHeight() / 2);
+        overText[1].translate(-overText[1].getWidth() / 2, overText[1].getHeight() / 2);
+
+        overText[0].grow(overText[0].getWidth() * 3, overText[0].getHeight() * 3);
+        overText[1].grow(overText[1].getWidth() * 3, overText[1].getHeight() * 3);
+
         grid = new Grid(10, 20);
         activeBlock = BlockFactory.getBlock(grid);
 
@@ -33,6 +50,7 @@ public class Game {
         keyboardListener.setBlock(activeBlock);
 
         paused = false;
+        end = false;
 
         score = 0;
         updateScore();
@@ -50,7 +68,7 @@ public class Game {
 
         while (true) {
 
-            if (!paused) {
+            if (!paused && !end) {
                 if (activeBlock.hitBottom()) {
                     score += grid.checkLines();
                     updateScore();
@@ -59,7 +77,7 @@ public class Game {
 
                     if (activeBlock.hitBottom()) {
                         gameOver();
-                        return;
+                        end = true;
                     }
 
                     keyboardListener.setBlock(activeBlock);
@@ -84,23 +102,11 @@ public class Game {
     }
 
     private void gameOver() {
-        new Rectangle(Constants.PADDING, Constants.PADDING, Constants.GAME_WIDTH, Constants.GAME_HEIGHT).fill();
+        background.delete();
+        background.fill();
 
-
-        Text g = new Text(Constants.GAME_WIDTH / 2, Constants.GAME_HEIGHT / 2 - 30, "GAME");
-        Text o = new Text(Constants.GAME_WIDTH / 2, Constants.GAME_HEIGHT / 2 + 30, "OVER");
-
-        g.setColor(Color.LIGHT_GRAY);
-        o.setColor(Color.LIGHT_GRAY);
-
-        g.translate(-g.getWidth() / 2, -g.getHeight() / 2);
-        o.translate(-o.getWidth() / 2, o.getHeight() / 2);
-
-        g.grow(g.getWidth() * 3, g.getHeight() * 3);
-        o.grow(o.getWidth() * 3, o.getHeight() * 3);
-
-        g.draw();
-        o.draw();
+        overText[0].draw();
+        overText[1].draw();
     }
 
     public void restart() {
@@ -111,6 +117,10 @@ public class Game {
 
         score = 0;
         updateScore();
+
+        end = false;
+        overText[0].delete();
+        overText[1].delete();
     }
 
     public boolean isPaused() {
