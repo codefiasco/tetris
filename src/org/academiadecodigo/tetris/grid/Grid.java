@@ -14,7 +14,7 @@ public class Grid {
 
     public boolean freeSpaceAt(Block block, int col, int row) {
 
-        if (col < 0 || col >= spaces.length || row < 0 || row >= spaces[0].length){
+        if (col < 0 || col >= spaces.length || row < 0 || row >= spaces[0].length) {
             return false;
         }
 
@@ -71,7 +71,7 @@ public class Grid {
 
         for (int i = 0; i < spaces.length; i++) {
 
-            if (spaces[i][line - 1] != null){
+            if (spaces[i][line - 1] != null) {
 
                 spaces[i][line - 1].getBlock().moveDown(spaces[i][line - 1]);
                 emptyLine = false;
@@ -80,6 +80,19 @@ public class Grid {
 
         if (!emptyLine) {
             moveLinesAboveDown(line - 1);
+        }
+    }
+
+    public void reset() {
+
+        for (Position[] line : spaces) {
+            for (Position s : line) {
+
+                if (s != null) {
+                    s.getBlock().deletePosition(s);
+                    s.clear();
+                }
+            }
         }
     }
 }

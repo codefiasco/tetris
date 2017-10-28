@@ -13,7 +13,7 @@ public class KeyboardListener implements KeyboardHandler {
     private Block block;
     private Game game;
 
-    public KeyboardListener(Game game){
+    public KeyboardListener(Game game) {
         this.game = game;
         kb = new Keyboard(this);
 
@@ -44,6 +44,11 @@ public class KeyboardListener implements KeyboardHandler {
 
         key = new KeyboardEvent();
         key.setKey(KeyboardEvent.KEY_P);
+        key.setKeyboardEventType(KeyboardEventType.KEY_RELEASED);
+        kb.addEventListener(key);
+
+        key = new KeyboardEvent();
+        key.setKey(KeyboardEvent.KEY_R);
         key.setKeyboardEventType(KeyboardEventType.KEY_RELEASED);
         kb.addEventListener(key);
     }
@@ -78,13 +83,19 @@ public class KeyboardListener implements KeyboardHandler {
                 block.spin();
                 break;
 
-                case KeyboardEvent.KEY_P:
-                    if (!game.isPaused()) {
-                        game.pause();
-                        break;
-                    }
+            case KeyboardEvent.KEY_P:
+                if (!game.isPaused()) {
+                    game.pause();
+                    break;
+                }
 
-                    game.unPause();
+                game.unPause();
+                break;
+
+            case KeyboardEvent.KEY_R:
+                game.restart();
+                break;
+
         }
     }
 

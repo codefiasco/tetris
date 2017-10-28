@@ -103,6 +103,16 @@ public class Game {
         o.draw();
     }
 
+    public void restart() {
+        grid.reset();
+
+        activeBlock = BlockFactory.getBlock(grid);
+        keyboardListener.setBlock(activeBlock);
+
+        score = 0;
+        updateScore();
+    }
+
     public boolean isPaused() {
         return paused;
     }

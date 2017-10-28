@@ -7,7 +7,7 @@ To Dos:
 - [X] Pause;
 - [ ] Initial Screen;
 - [X] End Screen;
-- [ ] Restart;
+- [X] Restart;
 - [X] Score;
 - [ ] Levels;
 - [ ] Next Piece;
