@@ -3,6 +3,7 @@ package org.academiadecodigo.tetris.movable.spinnable.block;
 public enum BlockType {
     IBLOCK,
     LBLOCK,
+    JBLOCK,
     SBLOCK,
     ZBLOCK,
     TBLOCK,

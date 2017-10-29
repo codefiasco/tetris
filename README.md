@@ -2,7 +2,7 @@
 A version of the Tetris game using Java and the Simple Graphics Library.
 
 To Do:
-- [ ] J Block;
+- [X] J Block;
 - [X] Z Block;
 - [X] Pause;
 - [X] End Screen;

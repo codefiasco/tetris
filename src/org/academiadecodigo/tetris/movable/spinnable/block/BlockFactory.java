@@ -15,6 +15,9 @@ public abstract class BlockFactory {
             case LBLOCK:
                 return new LBlock(grid);
 
+            case JBLOCK:
+                return new JBlock(grid);
+
             case SBLOCK:
                 return new SBlock(grid);
 
