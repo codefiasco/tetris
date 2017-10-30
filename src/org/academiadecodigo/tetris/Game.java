@@ -109,11 +109,10 @@ public class Game {
     }
 
     private void gameOver() {
-        background.delete();
-        background.fill();
-
         overText[0].draw();
         overText[1].draw();
+
+        activeBlock.erase();
     }
 
     public void restart() {

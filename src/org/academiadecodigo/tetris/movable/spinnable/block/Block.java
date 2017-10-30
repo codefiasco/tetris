@@ -127,4 +127,10 @@ public abstract class Block implements Spinnable {
         positions = newPositions;
         representations = newRepresentations;
     }
+
+    public void erase() {
+        for (Rectangle r : representations) {
+            r.delete();
+        }
+    }
 }
