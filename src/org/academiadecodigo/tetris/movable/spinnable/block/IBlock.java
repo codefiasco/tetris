@@ -7,8 +7,6 @@ import org.academiadecodigo.tetris.grid.Grid;
 
 public class IBlock extends Block {
 
-    private Direction state;
-
     public IBlock(Grid grid) {
         super(new int[][]{
                 {0, 0},

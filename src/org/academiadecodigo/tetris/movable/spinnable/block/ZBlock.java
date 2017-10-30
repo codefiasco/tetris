@@ -7,8 +7,6 @@ import org.academiadecodigo.tetris.grid.Grid;
 
 public class ZBlock extends Block {
 
-    private Direction state;
-
     public ZBlock(Grid grid) {
         super(new int[][]{
                         {1, 0},

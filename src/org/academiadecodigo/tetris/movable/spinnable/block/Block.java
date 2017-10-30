@@ -13,6 +13,7 @@ public abstract class Block implements Spinnable {
 
     protected Position[] positions;
     protected Rectangle[] representations;
+    protected Direction state;
 
     public Block(int[][] positions, Color color, Grid grid) {
 

@@ -10,8 +10,6 @@ import org.academiadecodigo.tetris.grid.Grid;
  */
 public class SBlock extends Block{
 
-    private Direction state;
-
     public SBlock(Grid grid) {
         super(new int[][]{
                 {0, 0},
