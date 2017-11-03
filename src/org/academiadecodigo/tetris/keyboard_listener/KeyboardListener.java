@@ -67,19 +67,35 @@ public class KeyboardListener implements KeyboardHandler {
         switch (keyboardEvent.getKey()) {
 
             case KeyboardEvent.KEY_RIGHT:
+                if (game.isPaused()) {
+                    return;
+                }
+
                 block.moveRight();
                 break;
 
             case KeyboardEvent.KEY_LEFT:
+                if (game.isPaused()) {
+                    return;
+                }
+
                 block.moveLeft();
                 break;
 
             case KeyboardEvent.KEY_DOWN:
+                if (game.isPaused()) {
+                    return;
+                }
+
                 block.moveDown();
                 break;
 
             case KeyboardEvent.KEY_UP:
             case KeyboardEvent.KEY_SPACE:
+                if (game.isPaused()) {
+                    return;
+                }
+
                 block.spin();
                 break;
 
